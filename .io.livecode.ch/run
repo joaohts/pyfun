@@ -4,4 +4,4 @@ set -e
 source myenv/bin/activate
 
 cat $2 $1 >cmd.py
-python cmd.py
+if ! timeout 2 python cmd.py; then echo "timeout"; fi
